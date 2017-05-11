@@ -50,7 +50,7 @@ public class DNI {
 
 		}
 	
-public int calculaLetra(String dni) {
+public int calculaLetra(int dni) {
 	String dnilet ="TRWAGMYFPDXBNJZSQVHLCKE";
 	int modulo = dni % 23;
 	char letra = dnilet.charAt(modulo);
