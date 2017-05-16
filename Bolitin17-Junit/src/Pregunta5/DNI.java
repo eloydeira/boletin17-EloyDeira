@@ -1,65 +1,57 @@
 package Pregunta5;
 
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.ArrayList;
+
 public class DNI {
-	private char[] dnilet = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q',
-			'V', 'H', 'L', 'C', 'K', 'E'};
-	
-	
-	public boolean eValido(String numeroLetra) {//non esta ben, hai que modificalo
+	private char[] dnilet = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
+			'H', 'L', 'C', 'K', 'E' };
+
+	public boolean eValido(String dni) {
+
 		
-		String dni = null;
-				
-		
-		//comprobar que a longitud sea 9
-		if(dni.length() ==9) {
-			return true;
-		
-				//comprobar que os 8 primeiros digitos sean numeros
-				for(int i=0; i<8; i++){
-					if(!Character.isDigit(dni.charAt(i))){
+
+		// compruebo su longitud que sea 9
+		if (dni.length() == 9) {
+			// Compruebo que los 8 primeros digitos sean numeros
+			for (int i = 0; i < 8; i++) {
+				if (Character.isDigit(dni.charAt(i))) {
+					// compruebo que el 9º digito es una letra
+					if (Character.isLetter(dni.charAt(8))) {
 						return true;
-					
-						//comprobar que o 9º digito e unha letra
-						if(!Character.isLetter(dni.charAt(8))){
-							return true;
-					}
-					else 
+					} else
 						return false;
+				} else
+					return false;
 			}
-					else 
-						return false;
-				}
-		
+		} 
+		else
 			return false;
-		
-		
-		}
-	
-public int calculaLetra(String numero) {//mal, volver mirar
-	int modulo;
+		return false;
 
-	if (numero.length() == 8) {
-		for (int i = 0; i < 8; i++)
-			if (numero.charAt(i) < '0' || numero.charAt(i) > '9')
-				return -1;
-	} else
-		return -1;
-	int numEntero = Integer.parseInt(numero);
-	modulo = numEntero % 23;
-return modulo;
+	}
+
+	public int calculaLetra(String dni) {
+		int numero = Integer.parseInt(dni);
+		int modulo = numero % 23;
+		return modulo;
+	}	
+
+		
+//non esta ben, hai que modificalo.
+	 public boolean eValido(ArrayList<Integer>numeros, char letra){
+		 if (numeros.size() == 8) {
+				int modulo = calculaLetra(numeros);
+				if (dnilet[modulo] == letra)
+					return true;
+				else
+					return false;
+			} else
+				return false;
+	}
+	// }
+	// public int calculaLetra(ArrayList<Integer>numeros) {
+
+	// }
+
 }
-		
-	//	public boolean eValido(ArrayList<Integer>numeros, char letra){
-			
-		//}
-		//public int calculaLetra(ArrayList<Integer>numeros) {
-			
-	//	}
-	
-
-}
-
