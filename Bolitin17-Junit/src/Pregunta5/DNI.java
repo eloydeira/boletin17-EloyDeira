@@ -40,18 +40,17 @@ public class DNI {
 		
 //non esta ben, hai que modificalo.
 	 public boolean eValido(ArrayList<Integer>numeros, char letra){
-		 if (numeros.size() == 8) {
-				int modulo = calculaLetra(numeros);
-				if (dnilet[modulo] == letra)
-					return true;
-				else
-					return false;
-			} else
-				return false;
+		 if (numeros.size() == 9){
+			 for(int i = 0; i < 8; i++) {
+					if (Character.isDigit(.charAt(i)))
+			 
+			
 	}
 	// }
 	// public int calculaLetra(ArrayList<Integer>numeros) {
+		return false;
 
 	// }
 
 }
+		 }
