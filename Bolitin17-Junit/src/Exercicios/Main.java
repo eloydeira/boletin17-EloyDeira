@@ -1,6 +1,7 @@
-package Pregunta5;
+package Exercicios;
 import java.util.Scanner;
-import Pregunta5.Xeometria;
+
+import Exercicios.Xeometria;
 
 public class Main {
 	public static void main(String[] args) {
